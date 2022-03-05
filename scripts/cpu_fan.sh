@@ -13,8 +13,7 @@ print_cpu_fan() {
     local val
     val="$(sensors)"
   fi
-    echo "$val" | awk -v format="$cpu_fan_format" '{print $2$3}'
-  fi
+  echo "$val" | grep fan1 | awk -v format="$cpu_fan_format" '{print $2$3}'
 }
 
 main() {
